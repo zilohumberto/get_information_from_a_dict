@@ -11,11 +11,11 @@ class Solver(Utils):
 
     def start(self):
         self.transform()
-        output = list()
+        output = dict()
         for expected in self.expected_data:
-            result = self.find_output(expected, self.data)
-            if result:
-                output.append(result)
+            candidate = self.find_output(expected, self.data)
+            if candidate:
+                output[expected] = candidate
         return output
 
     def find_output(self, key, candidate):
