@@ -1,9 +1,7 @@
 import os
 import subprocess
 from solver import Solver
-
-TEMP = "temp"
-EXAMPLE_SOURCE = "{}/enterprise-attack/attack-pattern/".format(TEMP)
+from settings import TEMP, EXAMPLE_SOURCE
 
 
 def download_repo():
