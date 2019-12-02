@@ -13,9 +13,10 @@
 ## Setup
 
 ###
-    pipenv install
-    pipenv run python manage.py
+    docker-compose up
  
  ## Test
-    pipenv install
+    make build
+    make create
+    make bash
     pipenv run pytest
