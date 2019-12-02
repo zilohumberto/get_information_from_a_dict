@@ -1,3 +1,4 @@
+import json
 from utils import Utils
 
 
@@ -8,6 +9,10 @@ class Solver(Utils):
     def __init__(self, data, expected_data):
         self.data = data
         self.expected_data = expected_data
+
+    def transform(self):
+        self.data = json.loads(self.data)
+        self.expected_data = self.expected_data
 
     def start(self):
         self.transform()

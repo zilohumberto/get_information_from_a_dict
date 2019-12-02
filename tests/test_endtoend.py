@@ -12,25 +12,25 @@ class TestEndToEnd(TestCase):
         pass
 
     def test_solver(self):
-        self.assertDictEqual(Solver('{"a": 3}', '["a"]').start(), {"a": 3})
+        self.assertDictEqual(Solver('{"a": 3}', ["a"]).start(), {"a": 3})
         self.assertDictEqual(
-            Solver('{"a": [1, 2, 3]}', '["a[0]"]').start(),
+            Solver('{"a": [1, 2, 3]}', ["a[0]"]).start(),
             {"a[0]": 1}
         )
         self.assertDictEqual(
-            Solver('["pedro", "random"]', '["[1]"]').start(),
+            Solver('["pedro", "random"]', ["[1]"]).start(),
             {"[1]": 'random'}
         )
         self.assertDictEqual(
-            Solver('["pedro", "random"]', '["no_valid_key"]').start(),
+            Solver('["pedro", "random"]', ["no_valid_key"]).start(),
             {}
         )
         self.assertDictEqual(
-            Solver('["pedro", "random"]', '["[5]"]').start(),
+            Solver('["pedro", "random"]', ["[5]"]).start(),
             {}
         )
         self.assertDictEqual(
-            Solver('{"pedro": 100, "random": 200}', '["[0]"]').start(),
+            Solver('{"pedro": 100, "random": 200}', ["[0]"]).start(),
             {}
         )
 
@@ -40,7 +40,7 @@ class TestEndToEnd(TestCase):
                 "title": "Challenge 1", "entities": ["1.2.3.4", "wannacry", 
                 "malware.com"] }, "score": 74,"time": 1574879179}
             """
-        b = '["guid", "content.entities", "score", "score.sign"]'
+        b = ["guid", "content.entities", "score", "score.sign"]
         self.assertDictEqual(
             Solver(a, b).start(),
             {
@@ -50,8 +50,18 @@ class TestEndToEnd(TestCase):
             }
         )
         self.assertDictEqual(
-            Solver(a, '["guid", "content.entities[0]"]').start(),
+            Solver(a, ["guid", "content.entities[0]"]).start(),
             {"guid": "1234", "content.entities[0]": "1.2.3.4"}
+        )
+
+        a_two = """
+            {"guid": "1234", "content": { "type": "text/html", 
+            "title": "Challenge 1", "entities": ["1.2.3.4", "wannacry", 
+            {"estamos":"malware.com"}] }, "score": 74,"time": 1574879179}
+        """
+        self.assertDictEqual(
+            Solver(a_two, ["guid", "content.entities[2].estamos"]).start(),
+            {"guid": "1234", "content.entities[2].estamos": "malware.com"}
         )
 
     def test_repo(self):
@@ -121,8 +131,8 @@ class TestEndToEnd(TestCase):
             ]
         })
         self.assertDictEqual(
-            Solver(response_repo, '["id", "objects[0].name", '
-                                  '"objects[0].kill_chain_phases"]').start(),
+            Solver(response_repo, ["id", "objects[0].name",
+                                   "objects[0].kill_chain_phases"]).start(),
             {
                 "id": "bundle--bf3c8e50-62a0-440f-9936-279bf4ad34bb",
                 "objects[0].name": "Indicator Removal from Tools",

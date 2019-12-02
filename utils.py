@@ -1,12 +1,7 @@
-import json
 import re
 
 
 class Utils(object):
-
-    def transform(self):
-        self.data = json.loads(self.data)
-        self.expected_data = json.loads(self.expected_data)
 
     @staticmethod
     def get_dots(key):
