@@ -12,7 +12,6 @@ class Solver(Utils):
 
     def transform(self):
         self.data = json.loads(self.data)
-        self.expected_data = self.expected_data
 
     def start(self):
         self.transform()
