@@ -5,12 +5,6 @@ from app.solver import Solver
 
 class TestEndToEnd(TestCase):
 
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
     def test_solver(self):
         self.assertDictEqual(Solver('{"a": 3}', ["a"]).start(), {"a": 3})
         self.assertDictEqual(
