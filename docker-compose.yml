@@ -3,7 +3,7 @@ services:
   trustart:
     environment:
       temporary_folder: 'temp'
-    image: truestart-humberto
+    image: trustart-humberto
     build: .
     container_name: cont-trustart-humberto
     command: /bin/bash -c "pipenv run python app/manage.py"

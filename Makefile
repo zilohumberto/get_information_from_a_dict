@@ -1,20 +1,20 @@
 build:
-	docker build -t truestart-humberto .
+	docker build -t trustart-humberto .
 
 create:
-	docker run -itd --name cont-truestart-humberto truestart-humberto
+	docker run -itd --name cont-trustart-humberto trustart-humberto
 
 start:
-	docker container start cont-truestart-humberto
+	docker container start cont-trustart-humberto
 
 stop:
-	docker container stop cont-truestart-humberto
+	docker container stop cont-trustart-humberto
 
 restart:
-	docker container restart cont-truestart-humberto
+	docker container restart cont-trustart-humberto
 
 bash:
-	docker exec -it cont-truestart-humberto bash
+	docker exec -it cont-trustart-humberto bash
 
 rm:
-	docker rm cont-truestart-humberto
+	docker rm cont-trustart-humberto
