@@ -1,6 +1,6 @@
 import json
 from unittest import TestCase
-from solver import Solver
+from app.solver import Solver
 
 
 class TestEndToEnd(TestCase):

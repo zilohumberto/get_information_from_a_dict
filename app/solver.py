@@ -1,5 +1,5 @@
 import json
-from utils import Utils
+from app.utils import Utils
 
 
 class Solver(Utils):

@@ -1,7 +1,7 @@
 import os
 import subprocess
-from solver import Solver
-from settings import TEMP, EXAMPLE_SOURCE
+from app.solver import Solver
+from app.settings import TEMP, EXAMPLE_SOURCE
 
 
 def download_repo():
@@ -24,6 +24,7 @@ def get_data_from_repo():
 
 
 if __name__ == "__main__":
+    download_repo()
     for data in get_data_from_repo():
         result = Solver(
             data=data,

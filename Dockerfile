@@ -5,7 +5,7 @@ LABEL Creator: "Humberto Felipe Rodriguez Rodriguez"
 RUN apt update -y
 
 # Install dependencies
-RUN apt-get update && apt-get install -yq --no-install-recommends python3 python3-virtualenv
+RUN apt-get update && apt-get install -yq --no-install-recommends python3 python3-virtualenv git
 
 RUN apt install -yq  python3-pip
 
