@@ -6,6 +6,6 @@ services:
     image: truestart-humberto
     build: .
     container_name: cont-trustart-humberto
-    command: /bin/bash -c "pipenv run python manage.py"
+    command: /bin/bash -c "pipenv run python app/manage.py"
     volumes:
       - .:/trustart/
