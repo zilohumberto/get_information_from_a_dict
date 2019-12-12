@@ -1,4 +1,4 @@
-# TruStar
+# get_information_from_a_dict
 
 ## Language
 
